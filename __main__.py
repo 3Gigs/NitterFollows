@@ -1,15 +1,8 @@
-def txt_to_list(txt):
-    followers = []
-    TXT_DATA = open(txt, "r", encoding="utf-8")
-    while True:
-        USER = TXT_DATA.readline()
-        if(USER != ""):
-           followers.append(USER.replace('\n', '').replace('\r', '').replace('@', '')) 
-        else:
-            break
-    return followers
+from socket import NI_DGRAM
+from NitterFollows import parse_followers_txt as parse_txt
 
 def main():
-    print(txt_to_list("FOLLOWERS.txt"))
+    print(parse_txt("FOLLOWERS.txt"))
+
 
 main()
